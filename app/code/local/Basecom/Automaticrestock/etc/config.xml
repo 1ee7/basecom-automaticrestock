@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Basecom_Automaticrestock>
+            <version>0.1.0</version>
+        </Basecom_Automaticrestock>
+    </modules>
+    <global>
+        <models>
+            <basecom_automaticrestock>
+                <class>Basecom_Automaticrestock_Model</class>
+                <resourceModel>basecom_automaticrestock_resource</resourceModel>
+            </basecom_automaticrestock>
+        </models>
+    </global>
+    <adminhtml>
+        <events>
+            <catalog_product_save_after>
+                <observers>
+                    <automaticrestockonmanualchange>
+                        <type>model</type>
+                        <class>basecom_automaticrestock/observer</class>
+                        <method>restockOnManualQuantityChange</method>
+                    </automaticrestockonmanualchange>
+                </observers>
+            </catalog_product_save_after>
+        </events>
+    </adminhtml>
+</config>
